@@ -1,0 +1,1 @@
+ALTER TABLE `rec` ADD `accno` INT(80) NULL AFTER `trans`, ADD PRIMARY KEY (`accno`);
