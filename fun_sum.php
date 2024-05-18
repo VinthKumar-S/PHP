@@ -1,23 +1,23 @@
 <html>
-<body bgcolor=tomato>
-<center><h1>Reverse Number</h1></center>
+<body bgcolor=pink>
+<center><h1>Sum of Digits</h1></center>
 <form method="POST">
 Enter the Number:<input type="text" name="in"><br>
 <input type="submit" name="yes" value="submit">
 </form>
 <?php
-function rev($num)
-{	$rev=0;
-	while($num>1)
+function sum($num)
+{	$sum=0;
+	while($num>0)
 	{
-		$rem=$num%10;
-		$rev=($rev*10)+$rem;
+		$dig=$num%10;
+		$sum=$sum+$dig;
 		$num=$num/10;
 	}
-return $rev;
+	echo "Sum of Digits:".$sum;
 }
 $num=$_POST['in'];
-echo "Reverse Value:".rev("$num");
+sum($num);
 ?>
 </body>
 </html>

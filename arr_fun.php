@@ -1,48 +1,51 @@
 <html>
-<body>
-<form action=""	method="POST">
-Enter the Elements for the 1st Array:<input type="text" name="val1"><br>
-Enter the Element for the 2nd Array:<input type="text" name="val2"><br>
-Enter the search element:<input type="text" name="val3"><br>
-<input type="submit" name="yes" value="submit">
+<body bgcolor=tomato>
+<center><h1>Array Funcations</h1></center>
+<form action="" method="POST">
+<h3>
+Enter the 1st Array elements:<input type="text" name="val1"><br>
+Enter the 2st Array elements:<input type="text" name="val2"><br>
+Enter the Search elements:<input type="text" name="chr"><br>
+</h3>
+<input type="submit" name="yes" value="submit"><br>
 </form>
 <?php
-$str=$_POST['val1'];
-$num=array( );
-$num=explode(',',$str);
-
+$tr=$_POST['val1'];
+$num=array();
+$num=explode(',',$tr);
 $str=$_POST['val2'];
-$num2=array( );
+$num2=array();
 $num2=explode(',',$str);
+$src=$_POST['chr'];
 
-$src=$_POST['val3'];
-echo "1st Array Value:";
-foreach ($num as $key => $value) {
-	# code...
-	echo $value.",";
+echo "Frist Array elements:<br>" ;
+foreach($num as $v)
+{
+  echo $v."<br>";
 }
-echo "<br>2nd Array Value:";
-foreach ($num2 as $key => $value) {
-	# code...
-	echo $value.",";
-}
-echo "<br>1.Sum of Array:".array_sum($num)."<br>";
-echo "2.Search in Array:".(array_search($src,$num)). "<br>";
 
+echo "Second Array elements:<br>" ;
+foreach($num2 as $v)
+{
+  echo $v."<br>";
+}
+echo"1.Searching the element:".$src."in 1st Array & indexing vlaue is:".array_search($src,$num)."<br>";
+echo"2.Sum of Array elements in 1st Array:".array_sum($num)."<br>";
+
+echo "3.Array Intersection:";
 $r1=(array_intersect($num,$num2));
-echo "3.Intersection :";
 print_r($r1);
-echo  "<br>";
+echo "<br>";
 
+echo "4.Array Differece A-B:";
 $r2=(array_diff($num,$num2));
-echo "4.Difference  :";
 print_r($r2);
-echo  "<br>";
+echo "<br>";
 
+echo "5.Array Merge A&B:";
 $r3=(array_merge($num,$num2));
-echo "5.Merging :";
 print_r($r3);
-echo  "<br>";
+echo "<br>";
 ?>
 </body>
 </html>

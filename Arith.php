@@ -1,43 +1,52 @@
 <html>
-<body bgcolor="Violet">
+<body bgcolor=pink>
 <form action="" method="POST">
-Enter the Frist No:<input type="text" name="n1"><br>
-Enter the Second No:<input type="text" name="n2"><br>
-Addition<input type="radio" name="ch" value="1"><br>
-Subtraction<input type="radio" name="ch" value="2"><br>
-Multiplication<input type="radio" name="ch" value="3"><br>
-Division<input type="radio" name="ch" value="4"><br>
-Modules<input type="radio" name="ch" value="5"><br>
-<input type="submit" name="yes" value="submit"><br>
+<font color=Blue>
+<center><h1>Arithmetic Operations</h1></center>
+</font>
+<center>
+<font color=yellow>
+<h3>
+Enter First Number:<input type="text" name="a"><br>
+Enter Second Number:<input type="text" name="b"><br>
+</h3>
+</font>
+Addition      :<input type="radio" name="input" value="1"><br>
+Subtraction   :<input type="radio" name="input" value="2"><br>
+Multiplication:<input type="radio" name="input" value="3"><br>
+Division      :<input type="radio" name="input" value="4"><br>
+Modules       :<input type="radio" name="input" value="5"><br>
+<input type="submit" name="yes" value="Calculate"><br>
 </form>
+<h3>
 <?php
-	$ch=$_POST['ch'];
-    $n1=$_POST['n1'];
-  	$n2=$_POST['n2'];
+$ch=$_POST['input'];
+$n1=$_POST['a'];
+$n2=$_POST['b'];
+switch($ch)
+{
+	case '1':
+		echo "Addition value:".($n1+$n2);
+	break;
+	case '2':
+		echo "Subtraction value:".($n1-$n2);
+	break;
+	case '3':
+		echo "Multiplication value:".($n1*$n2);
+	break;
+	case '4':
+		echo "Division value:".($n1/$n2);
+	break;
+	case '5':
+		echo "Modulo value:".($n1%$n2);
+	break;
+	
+	default:
 
-	switch ($ch) {
-		case '1':
-			echo "Addition:".($n1+$n2);
-			break;
-		case '2':
-			echo "Subtraction:".($n1-$n2);
-			break;
-
-	    case '3':
-			echo "Multiplication:".($n1*$n2);
-			break;
-		case '4':
-			echo "Division:".($n1/$n2);
-			break;
-		case '5':
-			echo "Modules:".($n1%$n2);
-			break;		
-		
-		default:
-			# code...
-			break;
-	}
-
+	break;
+}
 ?>
+</h3>
+</center>
 </body>
 </html>

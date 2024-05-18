@@ -1,71 +1,74 @@
 <html>
 <body bgcolor="#2abfba">
-<font color="#115c1d">	
+<center><h1>UG Application Form</h1></center>
 <form method="POST">
-<fieldset>	
+<fieldset>
 <legend><h4>Details</h4></legend>
-<pre>	
-1.Enter the Name:       <input type="text" name="name">
-
-2.Enter the Father Name:<input type="text" name="fn">
-
-3.Enter the Mother Name:<input type="text" name="mn">
-
-4.Enter the Phone No:   <input type="text" name="Mno">
-
-5.Enter the Mail ID:    <input type="text" name="mail">
-
-6.Choose the Gender:<br><input type="radio" name="gn" value="1">Male <br><input type="radio" name="gn" value="2">Female
-
-7.Date of Birth:        <input type="date" name="dob"><br>
-8.Extra Curricular:<br><input type="checkbox" name="cur[]" value="NCC">NCC
+<pre>
+Enter the Name:       <input type="text" name="name">
+Enter the Father's Name:<input type="text" name="fname">
+Enter the Mother's Name:<input type="text" name="mname">
+Enter the Mobile No:   <input type="text" name="Mob">
+Enter the Mail ID:       <input type="text" name="mail">
+Choose the Gender:<br><input type="radio" name="gn" value="1">Male
+<input type="radio" name="gn" value="2">Female
+Enter the Date of Birth:<input type="date" name="dob">
+Address:<br><textarea name="address" row="4" cols="30">
+</textarea>
+Extra Curricular Activity:<br><input type="checkbox" name="cur[]" value="NCC">NCC
 <input type="checkbox" name="cur[]" value="NSS">NSS
-<input type="checkbox" name="cur[]" value="SPORTS">SPORTS
-9.Course Name:          <select name="course" id="course">
-	<option value="BCA">BCA</option>
-	<option value="IT">BSC IT</option>
-	<option value="CS">BSC CS</option>
-</select><br>
-10.Address:<br><textarea name="address" rows="4" cols="30">
-</textarea>	
-<br><br><input type="submit"name="yes" value="   Submit   ">
+<input type="checkbox" name="cur[]" value="Sports">Sports
+Select Course Name:<select name="course" id="course">
+<option value="BCA">BCA</option>
+<option value="BSC IT">BSC IT</option>
+<option value="BSC CS">BSC CS</option>
+</select>
+<br><br><input type="submit" name="yes" value="Submit">
 </pre>
-</fieldset>	
+</fielset>
 </form>
-</font>
 <?php
-if(isset($_POST["yes"]))
-{
-   $name=$_POST["name"];
-   $Fname=$_POST["fn"];
-   $Mname=$_POST["mn"];
-   $Pno=$_POST["Mno"];
-   $mail=$_POST["mail"];
-   $gen=$_POST["gn"];
-   $dob=date('y-m-d',strtotime($_POST["dob"]));
-   $cur=$_POST["cur"];
-   $course=$_POST["course"];
-   $address=$_POST["address"];
-   echo "Name:$name<br>";
-   echo "Father Name:$Fname<br>";
-   echo "Mother Name:$Mname<br>";
-   echo "Mobile Number:$Pno<br>";
-   echo "Mail ID:$mail<br>";
-   echo "Gender:$gen<br>";
-   echo "Date of Birth:$dob<br>";
-   echo "Extra-Curricular";
-   if($cur!="")
-   {
-   	foreach ($cur as $key) 
-   	{
-   		# code...
-   		echo "$key".",";
-   	}
-   	echo "<br>";
-   } 
-  echo "Course:$course";
-  echo "Address:$address";      
- }  
+	if(isset($_POST['yes']))
+	{
+		$name=$_POST['name'];
+		$fname=$_POST['fname'];
+		$mname=$_POST['mname'];
+		$mno=$_POST['Mob'];
+		$mail=$_POST['mail'];
+		$gn=$_POST['gn'];
+		$dob=date('y-m-d',strtotime($_POST['dob']));
+		$cur=$_POST['cur'];
+		$course=$_POST['course'];
+		$address=$_POST['address'];
+		echo"<center><h2>Your Details</h2></center>";
+		echo "<pre>"; 
+		echo "Name                      :$name<br>";
+		echo "Father's Name             :$fname<br>";
+		echo "Mother's Name             :$mname<br>";
+		echo "Moblie Number             :$mno<br>";
+		echo "Mail ID                   :$mail<br>";
+		if($gn==1)
+		{
+			echo "Gender                    :Male<br>";
+		}
+		if($gn==2)
+		{
+			echo "Gender                    :Female<br>";
+		}
+		echo "Date of Birth             :$dob<br>";
+		echo "Extra Curricular Activity :";
+		if($cur!="")
+		{
+			foreach($cur as $key)
+			{
+				echo 	$key.",";
+			}
+			echo "<br>";
+		}
+		echo "Course                    :$course<br>";
+		echo "Address                   :$address";
+		echo "</pre>";		
+	}
 ?>
 </body>
 </html>
